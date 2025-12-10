@@ -9,3 +9,4 @@ SUIT_COLOR = {"♠": "black", "♣": "black", "♥": "red", "♦": "red"}
 
 class Card:
     def _init_(self, rank: int, suit: str, face_up: bool = False):
+        
