@@ -1,0 +1,6 @@
+itmA = 1.20
+itmB = 0.60
+itmC = 0.75
+item = input("What do you wish to purchase? Item A, B or C ")
+if item == A and a:
+    cost = itmA 

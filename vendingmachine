@@ -1,0 +1,12 @@
+print("Welcome to the vending machine")
+item = input("What do you wish to purchase? ")
+cost = float(input("How much does " + item + " cost? "))
+mony = float(input("how much money did you put into the machine? "))
+if mony == cost:
+    print("you have paid for the " + item)
+
+if mony >= cost:
+    print(f"You have recieved {mony - cost} change thank you for this transaction.")
+
+if mony <= cost:
+    print(f"You don't have enough money to purchase {item} you need {cost - mony} more funds")
