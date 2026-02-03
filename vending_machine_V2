@@ -11,31 +11,32 @@ item = int(input("What do you wish to purchase? Item A, B or C — input 1 for A
 if item == 1:
     cost = itmA
     name = "Item A"
-elif item == 2:
+if item == 2:
     cost = itmB
     name = "Item B"
-elif item == 3:
+if item == 3:
     cost = itmC
     name = "Item C"
-else:
-    print("Select The correct Item Please")
 
 money = float(input("How much money did you put into the machine? "))
 
-cost = int(round(cost * 100))
-money = int(round(money * 100))
+cost = cost * 100
+money = money * 100
 
 if money < cost:
     print(f"You don't have enough money to purchase {name}. You need ${(cost - money)/100:.2f} more.")
-elif money == cost:
+    money += float(input("How much more money do you wish to add to the machine? ")) * 100
+
+change = money - cost
+
+if money == cost:
     print(f"You have paid exactly for {name}. Thank you!")
 else:
-    change = money - cost
     print(f"You have received ${change/100:.2f} change.")
     print("Change dispensed in:")
 
     for coin in coins:
         count = change // coin
         if count > 0:
-            print(f"{count} x ${coin/100:.2f}")
+            print(f"{int(count)} x ${coin/100:.2f}")
             change -= count * coin
