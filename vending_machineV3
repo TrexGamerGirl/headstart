@@ -1,6 +1,8 @@
-itmA = 1.20
-itmB = 0.60
-itmC = 0.75
+items = {
+    "A": 120,
+    "B": 60,
+    "C": 75
+}
 
 coins = [200, 100, 50, 20, 10, 5]
 
@@ -8,35 +10,38 @@ print("Welcome to the vending machine this machine only accepts coins.")
 while True:
     item = input("What do you wish to purchase? Item A, B or C ").upper()
 
-    if item == "A":
-        cost = itmA
-        name = "Item A"
+    if item in items.keys():
+        cost = items[item]
         break
-    elif item == "B":
-        cost = itmB
-        name = "Item B"
-        break
-    elif item == "C":
-        cost = itmC
-        name = "Item C"
-        break
+    elif not item:
+        print("Goodbye")
+        exit(0)
     else:
         print("NOOO VAYYYY try again")
         continue
+print(f"The price of  {item} is {items[item]} cents" )
+totalPaid = 0
+while True:
+    try:
+        money = int(input("How much money did you put into the machine in cents "))
+    except ValueError:
+        print("Letters aren't in currency try again")
+        continue    
+    if money in coins:
+        totalPaid += money
+        if totalPaid >= cost:
+            change = totalPaid - cost
 
-money = float(input("How much money did you put into the machine? "))
+            print(f"You have received ${change/100:.2f} change.")
+            break
 
-cost = cost * 100
-money = money * 100
+        print(f"You have paid ${totalPaid/100:.2f} out of ${cost/100:.2f}")
+    else:
+        print("That is not a valid input try again with real money")
+        continue
 
-if money < cost:
-    print(f"You don't have enough money to purchase {name}. You need ${(cost - money)/100:.2f} more.")
-    money += float(input("How much more money do you wish to add to the machine? ")) * 100
-
-change = money - cost
-
-if money == cost:
-    print(f"You have paid exactly for {name}. Thank you!")
+if totalPaid == cost:
+    print(f"You have paid exactly for {item}. Thank you!")
 else:
     print(f"You have received ${change/100:.2f} change.")
     print("Change dispensed in:")
