@@ -12,10 +12,10 @@ root.columnconfigure(0, weight=1)
 
 #creates a style in this example it's a backgrounf
 style = ttk.Style()
-style.configure("Magenta.TFrame", background="Magenta")
+style.configure("Aqua.TFrame", background="aqua")
 
 #container widget to group up other items
-frame = ttk.Frame(root, padding=12, style="Magenta.TFrame")
+frame = ttk.Frame(root, padding=12, style="Aqua.TFrame")
 frame.grid(row=0, column=0, sticky="NSEW")
 frame.columnconfigure(1, weight=1)
 
@@ -38,3 +38,9 @@ ttk.Button(frame, text="Greet", command=greet).grid(row=1,column=0,columnspan=2,
 
 #start tkinter prosceess
 root.mainloop()
+
+#IDE stands for intergrated development environment  which is an environment in which all the the tools are integrated for development
+#for example a text editor, syntax checking and highlighting, a compiler (some languages need an interpreter instead i.e javascript) (a compiler takes text and turns it into a readable lanuage for a computor) (python is both a compliled and interpreted langyage) and a debugger.
+#validation is a key part of programming ; never trust users they are not very clever and have ill intentions validation does this
+#validation checks if data is reasonable, however it cannot check if infomation is accurate
+#three tupes of validion: existance checking, type checking (string, integer and float (numeric) and boolean) and range checking
